@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include <utility>
 #include <vector>
 using namespace std;
 
@@ -37,8 +38,7 @@ public:
     U data;
     vector<Node<U>*> children;
 
-    // TODO: Write constructor
-    // Node(const string &nodeID, const U &value);
+    Node(string nodeID, const U &value) : id(std::move(nodeID)), data(value) {}
 };
 
 template <typename T>
@@ -47,8 +47,7 @@ private:
     Node<T>* root;
 
 public:
-    Tree();
-    // TODO: Initialize root pointer to nullptr
+    Tree() { root = nullptr; }
 
     void createRoot(const string &id, const T &value);
     // TODO: Allocate memory, assign id, assign data, set as root
@@ -63,7 +62,10 @@ public:
     void printAll();
     // TODO: Print entire structure in readable form
 
-    ~Tree();
+    ~Tree()
+    {
+
+    }
     // TODO: Free all allocated memory
 };
 

@@ -12,6 +12,8 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
+#include <map>
+
 #include "tree.h"
 using namespace std;
 
@@ -99,11 +101,12 @@ vector<StoryNodeRaw> parseStoryFile(const string &filename) {
 }
 
 // Main Program
-int main() {
+int main()
+{
     cout << "Enter your OpenAI API key: ";
     string apiKey;
     getline(cin, apiKey);
-
+    
     string filename = runCurlToOpenAI(apiKey);
 
     vector<StoryNodeRaw> rawNodes = parseStoryFile(filename);
