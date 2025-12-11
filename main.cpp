@@ -27,6 +27,7 @@ using namespace std;
    4. Calls your Tree methods to build a dynamic tree.
 
    You must NOT modify this file.
+   ^ okay but like what if I modify main anyway
 */
 
 // Structure for raw parsed nodes
@@ -39,7 +40,7 @@ struct StoryNodeRaw {
 // Step 1. Call OpenAI with curl
 string runCurlToOpenAI(const string &apiKey) {
     string command =
-        "curl https://api.openai.com/v1/responses "
+        "curl.exe https://api.openai.com/v1/responses "
         "-H \"Content-Type: application/json\" "
         "-H \"Authorization: Bearer " + apiKey + "\" "
         "-d '{"
@@ -118,12 +119,12 @@ int main()
     Tree<string> adventureTree;
 
     // TODO: Students, create the root from rawNodes[0]
-    // adventureTree.createRoot(rawNodes[0].id, rawNodes[0].text);
+    adventureTree.createRoot(rawNodes[0].id, rawNodes[0].text);
 
     // TODO: Students, add all remaining nodes
-    // for (int i = 1; i < rawNodes.size(); i++) {
-    //     adventureTree.addNode(...);
-    // }
+    for (int i = 1; i < rawNodes.size(); i++) {
+        adventureTree.addNode(, rawNodes[i].id, rawNodes[i].text);
+    }
 
     // TODO: Students, implement a method in Tree<T> called playGame()
     // This method should:

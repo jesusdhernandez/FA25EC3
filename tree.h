@@ -38,7 +38,7 @@ public:
     U data;
     vector<Node<U>*> children;
 
-    Node(string nodeID, const U &value) : id(std::move(nodeID)), data(value) {}
+    Node(string nodeID, const U &value);
 };
 
 template <typename T>
@@ -47,7 +47,8 @@ private:
     Node<T>* root;
 
 public:
-    Tree() { root = nullptr; }
+    Tree();
+    // TODO: Initialize root pointer to nullptr
 
     void createRoot(const string &id, const T &value);
     // TODO: Allocate memory, assign id, assign data, set as root
@@ -62,10 +63,7 @@ public:
     void printAll();
     // TODO: Print entire structure in readable form
 
-    ~Tree()
-    {
-
-    }
+    ~Tree();
     // TODO: Free all allocated memory
 };
 
